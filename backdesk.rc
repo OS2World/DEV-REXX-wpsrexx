@@ -1,0 +1,73 @@
+/*--------------------------------------------------------------------*/
+/*                                                                    */
+/* FILE:    BACKDESK.RC                                               */
+/*                                                                    */
+/* BY:      Mark A. Stern                                             */
+/*          Blue Bird Computing, Inc                                  */
+/*          P.O. Box 646                                              */
+/*          Rockaway, N.J. 07866                                      */
+/*          email - mstern@world.std.com                              */
+/*                                                                    */
+/* DATE:    11Apr92 - New                                             */
+/*          30Jul92 - Improve description and usage info              */
+/*                                                                    */
+/* PURPOSE: To be used by MAKEINI.EXE to create background folder     */
+/*          holding the real OS/2 desktop.                            */               */
+/*                                                                    */
+/* NOTES:                                                             */
+/*                                                                    */
+/*   I do not take credit for originating the idea of a shadow        */
+/*   to the main desktop. I found out one could do this by            */
+/*   studying OS2_13.RC supplied with GA code and using excerpts      */
+/*   from that file.                                                  */
+/*                                                                    */
+/*                                                                    */
+/* USAGE:                                                             */
+/*                                                                    */
+/* * Copy this file to your \OS2 directory.                           */
+/*                                                                    */
+/* * Boot from the install diskette and press escape to get a         */
+/*   command prompt.                                                  */
+/*     (If you are using my PAUSBOOT utility just pause the           */
+/*      bootup process on the next reboot from the hard drive.)       */
+/*                                                                    */
+/* * When you get to the command prompt execute the following         */
+/*   command in the \OS2 directory of your boot drive:                */
+/*                                                                    */
+/*    MAKEINI OS2.INI BACKDESK.RC                                     */
+/*                                                                    */
+/* * If you used PAUSBOOT, just type EXIT to continue boot-up,        */
+/*   otherwise re-boot.                                               */
+/*                                                                    */
+/* * When the Work Place shell starts up a new background desktop     */
+/*   will be created that will hold the original OS/2 2.0 desktop     */
+/*   This will allow you to bring the desktop folder to the top       */
+/*   when you want to use something on it.                            */
+/*                                                                    */
+/*--------------------------------------------------------------------*/
+
+CODEPAGE 850
+
+STRINGTABLE
+BEGIN
+
+  ""
+  ""
+  ""
+  ""
+  ""
+  ""
+  ""
+  ""
+  ""
+  ""
+
+  "PM_Workplace:InstallGroups" "1" "1"
+  "PM_Workplace:PrinterInstall" "1" "1"
+  "PM_DefaultSetup" "ACTIVEDESKTOP" "<WP_BACKGROUND>"
+  "PM_DefaultSetup" "GROUPFOLDER"   "<WP_DESKTOP>"
+  "PM_DefaultSetup" "OPEN"          "<WP_DESKTOP>,<WP_OS2SYS>"
+
+  "PM_InstallObject" "OS/2 Background;WPDesktop;?:\" "OBJECTID=<WP_BACKGROUND>"
+  "PM_InstallObject" "OS/2 2.0^Desktop;WPShadow;<WP_BACKGROUND>" "SHADOWID=<WP_DESKTOP>"
+END
